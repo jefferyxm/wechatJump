@@ -35,6 +35,7 @@ def caculate(event,x,y,flags,param):
 
 
 cv2.namedWindow("screenshot")
+#setup a mouse callback
 cv2.setMouseCallback('screenshot', caculate)
 
 while(1):
@@ -44,11 +45,12 @@ while(1):
     # wait finish
     time.sleep(2)
 
-    #read message
+    #read screenshot
     m2=os.popen("adb pull /sdcard/screen.png C:\\Users\\jeffery\\Desktop\\jump\\shot")
 
     time.sleep(1)
-    #caculate time from distance
+    
+    #show image
     im = cv2.imread("shot\\screen.png")
     im2 = cv2.resize(im, None, fx=scale, fy=scale, interpolation=cv2.INTER_CUBIC)
 
